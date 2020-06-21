@@ -1,0 +1,20 @@
+
+#Block proxies almost of all kind. - tested HMA High +KA and did not passed.
+RewriteEngine on
+
+RewriteCond %{HTTP:HTTP_VIA}      !^$ [OR]
+RewriteCond %{HTTP:HTTP_X_FORWARDED_FOR}      !^$ [OR]
+RewriteCond %{HTTP:HTTP_FORWARDED_FOR}      !^$ [OR]
+RewriteCond %{HTTP:HTTP_X_FORWARDED}      !^$ [OR]
+RewriteCond %{HTTP:HTTP_FORWARDED}      !^$ [OR]
+RewriteCond %{HTTP:HTTP_CLIENT_IP}      !^$ [OR]
+RewriteCond %{HTTP:HTTP_FORWARDED_FOR_IP}      !^$ [OR]
+RewriteCond %{HTTP:VIA}      !^$ [OR]
+RewriteCond %{HTTP:X_FORWARDED_FOR}      !^$ [OR]
+RewriteCond %{HTTP:FORWARDED_FOR}      !^$ [OR]
+RewriteCond %{HTTP:X_FORWARDED}      !^$ [OR]
+RewriteCond %{HTTP:FORWARDED}      !^$ [OR]
+RewriteCond %{HTTP:CLIENT_IP}      !^$ [OR]
+RewriteCond %{HTTP:FORWARDED_FOR_IP}      !^$ [OR]
+RewriteCond %{HTTP:HTTP_PROXY_CONNECTION}      !^$
+RewriteRule ^(.*)$ - [F]
